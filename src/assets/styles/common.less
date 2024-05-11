@@ -1,0 +1,85 @@
+@import "./h5.less";
+
+// 圆角按钮
+.roundCorner(@height) {
+  height: @height;
+  border-radius: @height / 2;
+}
+
+// 全局蒙层
+.maskBg(@opacity : 0.7) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, @opacity);
+  z-index: 99;
+}
+
+.btnGroup {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// 设置指定透明度背景色
+// .btnColor(@color, @opacity: 0.1) {
+//   @red: red(@color);
+//   @green: green(@color);
+//   @blue: blue(@color);
+//   @rgba: rgba(@red, @green, @blue, @opacity);
+//   background-color: @rgba;
+//   color: @color;
+
+//   &:hover,
+//   &:active,
+//   &:focus {
+//     background-color: @rgba;
+//     color: @color;
+//   }
+// }
+
+.highlight {
+  font-weight: 600;
+  color: #317e00;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+@keyframes up {
+  from {
+    transform: translateY(100%);
+    opacity: .8;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: .8;
+  }
+}
+
+@keyframes scale {
+  to {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes point {
+  0% {
+    opacity: 0.2;
+  }
+
+  100% {
+    transform: scale(1.1) translate(-2vw, -2vw);
+  }
+}

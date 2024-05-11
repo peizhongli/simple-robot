@@ -1,0 +1,96 @@
+@import "./h5.less";
+@import "./common.less";
+
+@width: 376 * @px2vw;
+@fullHeight: 300 * @px2vw;
+@halfHeight: 70vh;
+@borderRadius: 20 * @px2vw;
+.mask {
+  .maskBg();
+  display: flex;
+  justify-content: center;
+  animation: fade-in 0.2s;
+
+  &.half {
+    align-items: flex-end;
+
+    .box {
+      height: @halfHeight;
+      margin-top: 0;
+      animation: up 0.5s;
+    }
+
+    .closeBtn {
+      top: 32.5 * @px2vw;
+      right: 17.5 * @px2vw;
+    }
+  }
+
+  .box {
+    position: relative;
+    width: @width;
+    height: @fullHeight;
+    margin-top: 255.5 * @px2vw;
+  }
+
+  .boxBg,
+  .wrap {
+    width: 100%;
+    height: 100%;
+  }
+
+  .boxBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: @borderRadius;
+    background-image: linear-gradient(to top, #fff, #fefefe, #fefefe);
+    box-sizing: border-box;
+    z-index: 9;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: block;
+    }
+
+    &::before {
+      top: 0;
+      width: 100%;
+      height: 82 * @px2vw;
+      background-image: linear-gradient(to top, transparent 0, #a2d283 100%);
+      border-radius: @borderRadius @borderRadius 0 0;
+      opacity: 0.63;
+      z-index: 10;
+    }
+
+    &::after {
+      width: 100% + 2 * 18.5 * @px2vw;
+      bottom: -32 * @px2vw;
+      height: 202 * @px2vw;
+      background-image: linear-gradient(to bottom, transparent 0, #e8feda 100%);
+      border-radius: 0 0 @borderRadius @borderRadius;
+      z-index: 10;
+    }
+  }
+
+  .wrap {
+    position: relative;
+    background: transparent;
+    z-index: 11;
+  }
+
+  .closeBtn {
+    position: absolute;
+    top: 76.5 * @px2vw;
+    right: 41 * @px2vw;
+    width: 45 * @px2vw;
+    height: 45 * @px2vw;
+    background: url("@assets/images/close-icon.png") no-repeat;
+    background-size: 100% 100%;
+    z-index: 999;
+  }
+}

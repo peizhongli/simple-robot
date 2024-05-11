@@ -1,0 +1,54 @@
+.chat {
+  &Wrap {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  &Title {
+    width: 100%;
+    margin: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    text-align: center;
+    box-shadow: 0 -5px 15px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  &Input {
+    flex: 1;
+    border: 0;
+    outline: none;
+    &Wrap {
+      position: relative;
+      display: flex;
+      padding: 10px;
+
+      &::before {
+        position: absolute;
+        box-sizing: border-box;
+        content: " ";
+        pointer-events: none;
+        top: -50%;
+        right: -50%;
+        bottom: -50%;
+        left: -50%;
+        border-top: 1px solid #eee;
+        transform: scale(0.5);
+      }
+
+      .sendBtn {
+        margin-left: 10px;
+        height: 32px;
+        padding: 0 12px;
+        outline: none;
+        border: 0;
+        background-color: #8866ec;
+        color: #fff;
+        border-radius: 16px;
+
+        &:disabled {
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+}
